@@ -1,16 +1,21 @@
 <?php
+
 namespace Server\Classes;
-use Client\Classes\Home as Home;
+
 class Router
 {
     // массив для хранения соответствия url => функция
     private static $routes = array();
-   
+
     // запрещаем создание и копирование статического объекта
-    private function __construct() {}
-    private function __clone() {}
-   
-   
+    private function __construct()
+    {
+    }
+    private function __clone()
+    {
+    }
+
+
     // данный метод принимает шаблон url-адреса
     // как шаблон регулярного выражения и связывает его
     // с пользовательской функцией
@@ -21,17 +26,15 @@ class Router
         $pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';
         self::$routes[$pattern] = $callback;
     }
-   
+
     // данный метод проверяет запрошенный $url(адрес) на
     // соответствие адресам, хранящимся в массиве $routes
     public static function execute($url)
     {
-        foreach (self::$routes as $pattern => $callback)
-        {
+        foreach (self::$routes as $pattern => $callback) {
             if (preg_match($pattern, $url, $params)) // сравнение идет через регулярное выражение
             {
                 array_shift($params);
-
                 return call_user_func($callback, array_values($params));
             }
         }

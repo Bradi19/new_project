@@ -10,6 +10,7 @@
     "autoload": {
         "psr-4": {
             "Includes\\Classes\\": "includes/classes",
+            "Models\\": "Models",
             "Client\\Classes\\": "client/classes",
             "Server\\Classes\\": "server/classes"
             
