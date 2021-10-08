@@ -1,0 +1,24 @@
+{
+    "name": "nikolay/docker",
+    "authors": [
+        {
+            "name": "Nikos Bok",
+            "email": "mukasbok@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Includes\\Classes\\": "includes/classes",
+            "Client\\Classes\\": "client/classes",
+            "Server\\Classes\\": "server/classes"
+            
+        },
+        "files": [
+            "config/config.php",
+            "config/route.php",
+            "includes/loader.php"
+            
+        ]
+    }
+}
